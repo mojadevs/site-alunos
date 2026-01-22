@@ -24,6 +24,9 @@ export default function Home() {
     }
 
     const data = await res.json();
+    
+ 
+
     setResposta(data.resposta || "Erro ao obter resposta");
 
   } catch (error) {
@@ -31,7 +34,6 @@ export default function Home() {
     setResposta("Ocorreu um erro ao processar sua pergunta.");
 
   } finally {
-
     setLoading(false);
   }
 }
@@ -40,7 +42,7 @@ export default function Home() {
     <main className="min-h-screen flex items-center justify-center bg-(--cor-fundo-primaria) text-white">
       <div className="w-full max-w-2xl p-6 bg-(--cor-fundo-secundaria) rounded-xl shadow-lg">
         <h1 className="text-2xl font-bold mb-4 text-center">
-          Plataforma de Apoio ao Estudo
+          Plataforma de Apoio ao Estudo 
         </h1>
 
         <textarea
