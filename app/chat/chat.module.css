@@ -31,6 +31,25 @@
   font-size: 0.95rem;
 }
 
+.resposta h1,
+.resposta h2 {
+  margin-top: 16px;
+}
+
+.resposta p {
+  margin: 6px 0;
+}
+
+.resposta strong {
+  color: #f4cd5b;
+}
+
+.resposta code {
+  background: rgba(255,255,255,0.1);
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
 /* CHAT */
 
 .chatBox {

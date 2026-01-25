@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import { openChatApi } from "../../lib/openai";
 
-let lastReq = 0
+const rateLimit = new Map(); // IP -> timestamp
+const LIMIT_TIME = 10_000; // 10 segundos
 
 export async function POST(req) {
   try {
     const { prompt } = await req.json();
-    const now = Date.now()
 
     if (!prompt || typeof prompt !== "string") {
       return NextResponse.json(
@@ -15,16 +15,23 @@ export async function POST(req) {
       );
     }
 
-  
+    // 🔎 pega IP do usuário
+    const ip =
+      req.headers.get("x-forwarded-for")?.split(",")[0] ||
+      "unknown";
 
-  if(now - lastReq < 20000){
-    return NextResponse.json(
-      JSON.stringify({ resposta: "Espere 10 segundos..." }),
-      { status: 429 }
-    );
-  }
+    const now = Date.now();
+    const lastTime = rateLimit.get(ip) || 0;
 
-  lastReq = now
+    if (now - lastTime < LIMIT_TIME) {
+      const wait = Math.ceil((LIMIT_TIME - (now - lastTime)) / 1000);
+      return NextResponse.json(
+        { erro: `Espere ${wait}s antes de perguntar novamente.` },
+        { status: 429 }
+      );
+    }
+
+    rateLimit.set(ip, now);
 
     const res = await openChatApi(prompt);
 
@@ -33,10 +40,10 @@ export async function POST(req) {
     });
 
   } catch (error) {
-    console.error("Erro no server:", error.message);
+    console.error("Erro no server:", error);
 
     return NextResponse.json(
-      { erro: error.message || "Erro interno" },
+      { erro: "Erro interno no servidor" },
       { status: 500 }
     );
   }
