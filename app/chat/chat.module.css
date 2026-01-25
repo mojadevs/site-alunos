@@ -9,8 +9,6 @@
   color: white;
 }
 
-/* RESPOSTA */
-
 .respostaBox {
   width: 100%;
   max-width: 720px;
@@ -44,13 +42,18 @@
   color: #f4cd5b;
 }
 
+.normal {
+  color: white;
+}
+.erro {
+  color: var(--cor-secundaria);
+}
+
 .resposta code {
   background: rgba(255,255,255,0.1);
   padding: 4px 6px;
   border-radius: 6px;
 }
-
-/* CHAT */
 
 .chatBox {
   width: 100%;
@@ -67,7 +70,7 @@
   min-height: 100px;
   padding: 12px;
   border-radius: 8px;
-  background: var(--cor-fundo-terciaria);
+  background: var(--cor-fundo-secundaria);
   color: white;
   resize: none;
   border: none;
@@ -99,7 +102,7 @@
   cursor: not-allowed;
 }
 
-/* RESPONSIVO */
+/* ================= RESPONSIVO ================= */
 
 @media (min-width: 768px) {
   .textarea {
@@ -108,7 +111,7 @@
 
   @media (max-width: 768px) {
 .container {
-align-items: stretch; /* 🔑 */
+align-items: stretch;
 }
 }
 
@@ -180,8 +183,6 @@ font-size: 1rem;
     filter: blur(90px);
   }
 }
-
-/* EFEITO */
 
 .glow {
   position: absolute;
