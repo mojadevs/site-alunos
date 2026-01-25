@@ -9,7 +9,9 @@ export default function ChatPage() {
   const [resposta, setResposta] = useState("");
   const [loading, setLoading] = useState(false);
   const [cooldown, setCooldown] = useState(0);
+  const [conversa, setConversa] = useState({pergunta: "", resposta: ""});
 
+  
   async function enviarPergunta() {
     if (!pergunta.trim() || loading || cooldown > 0) return;
 
@@ -52,6 +54,7 @@ export default function ChatPage() {
     }
   }
 
+
   return (
     <main className={styles.container}>
       {resposta && (
@@ -84,8 +87,7 @@ export default function ChatPage() {
             : "Enviar"}
         </button>
       </div>
-
-      <div className={styles.glow}></div>
+ 
     </main>
   );
 }

@@ -11,6 +11,7 @@ body {
   color: white;
   background-color: var(--cor-fundo-primaria);
   font-family: Arial, Helvetica, sans-serif;
+  width: 100wh;
 }
 
 textarea:focus {

@@ -36,14 +36,6 @@ export default function Header() {
             Chat
           </Link>
         </li>
-        <li>
-          <Link
-        href="https://wa.me/5512981207619"
-        className={`${styles.navegation}`}
-      >
-        Contato
-      </Link>
-        </li>
       </ul>
 
     </header>

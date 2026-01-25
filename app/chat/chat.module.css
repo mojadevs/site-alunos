@@ -106,8 +106,78 @@
     font-size: 1rem;
   }
 
+  @media (max-width: 768px) {
+.container {
+align-items: stretch; /* 🔑 */
+}
+}
+
   .resposta {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .respostaBox,
+  .chatBox {
+    max-width: 100%;
+  }
+
+  .resposta {
+    font-size: 0.95rem;
+  }
+
+  .glow {
+    width: 400px;
+    height: 300px;
+    filter: blur(90px);
+  }
+}
+
+@media (max-width: 360px) {
+.container {
+padding: 12px;
+}
+
+
+.respostaBox,
+.chatBox {
+padding: 12px;
+border-radius: 12px;
+}
+
+
+.textarea {
+min-height: 90px;
+font-size: 0.9rem;
+}
+
+
+.botao {
+padding: 10px;
+font-size: 0.9rem;
+}
+
+
+.titulo {
+font-size: 1rem;
+}
+}
+
+@media (max-width: 480px) {
+  .respostaBox,
+  .chatBox {
+    max-width: 100%;
+  }
+
+  .resposta {
+    font-size: 0.95rem;
+  }
+
+  .glow {
+    width: 400px;
+    height: 300px;
+    filter: blur(90px);
   }
 }
 

@@ -22,9 +22,11 @@
 
 .content {
   position: absolute;
-  left: -190px;
-  top: -80px;
-  transform: rotate(-7deg);
+  left: 0px;
+  bottom: 350px;
+  width: 150px;
+  border-radius: 50%;
+  transform: rotate(-15deg);
 }
 
 /* Triângulo */
@@ -121,63 +123,92 @@
 /* ================= RESPONSIVO ================= */
 
 @media (max-width: 768px) {
+.title {
+font-size: 32px;
+}
+
+
+.subtitle {
+font-size: 16px;
+padding: 0 10px;
+}
+
+
+.content {
+position: relative;
+margin-bottom: 40px;
+transform: none;
+}
+
+
+.image {
+width: 110px;
+height: 110px;
+right: 0px;
+transform: rotate(-8deg); 
+bottom: -250px;
+}
+
+
+.triangle {
+border-left: 80px solid transparent;
+border-right: 40px solid transparent;
+border-bottom: 80px solid #f4cd5b;
+}
+
+
+.image.one {
+width: 110px;
+height: 110px;
+top: 0;
+margin: 0 auto 20px;
+}
+}
+
+@media (max-width: 480px) {
   .title {
-    font-size: 32px;
+    font-size: 26px;
   }
 
   .subtitle {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .button {
-    width: 150px;
-    max-width: 200px;
+    width: 100%;
+    max-width: 220px;
   }
 
-  /* CONTAINER DAS IMAGENS */
-  .content {
-    position: relative;
-    left: 0;
-    top: 0;
-    transform: rotate(0deg);
-    margin-bottom: 60px;
-    display: flex;
-    justify-content: center;
-  }
-
-  /* IMAGEM COM TRIÂNGULO */
-  .image {
-    width: 120px;
-    height: 120px;
-    margin-right: -100px;
-    margin-top: -30px;
-    transform: rotate(5deg)
+  .image,
+  .image.one {
+    width: 90px;
+    height: 90px;
   }
 
   .triangle {
-    border-left: 80px solid transparent;
-    border-right: 40px solid transparent;
-    border-bottom: 80px solid #f4cd5b;
-  }
-
-  /* 🔵 CÍRCULO ROXO */
-  .image.one {
-    display: block;
-    position: relative;
-    right: auto;
-    bottom: auto;
-    transform: rotate(5deg);
-    width: 110px;
-    height: 110px;
-    margin-left: 5px;
-    margin-bottom: 20px; /* separa do texto */
-    margin-top: -100px;   /* 🔑 sobe ele um pouco */
-    border-radius: 50%;
-    background-color: #724edb;
+    border-left: 65px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 65px solid #f4cd5b;
   }
 
   .glow {
-    height: 250px;
-    filter: blur(80px);
+    height: 200px;
+    filter: blur(90px);
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .image,
+  .image.one {
+    width: 75px;
+    height: 75px;
   }
 }
