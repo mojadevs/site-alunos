@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --cor-fundo-primaria: #101828;
-  --cor-fundo-secundaria: #1e2939;
-  --cor-fundo-terciaria: #364153;
-  --cor-primaria: #155dfc;
-  --cor-secundaria: #1447e6;
+  --cor-fundo-primaria: #1C1C1C;
+  --cor-fundo-secundaria: #292929;
+  --cor-primaria: #724edb;
+  --cor-secundaria: #f4cd5b;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  color: white;
+  background-color: var(--cor-fundo-primaria);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+textarea:focus {
+outline: none;
 }

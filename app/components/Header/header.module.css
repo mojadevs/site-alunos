@@ -1,30 +1,82 @@
-.header{
-    display: flex;
-    justify-content: space-between;
-    padding: 25px 50px; 
+.header {
+  display: flex;
+  align-items: center;
+  padding: 20px 24px;
 }
 
-.flex{
-    display: flex;
-    gap: 50px;
-
-    &.center{
-        justify-content: center;
-        align-items: center;    
-    }
+/* LOGO */
+.logo {
+  font-size: 26px;
+  font-weight: 600;
 }
 
-.navegation{
-    border: 2px solid rgb(0, 0, 0, 0.25);
-    color: rgb(0, 0, 0, 0.25);
-    padding: 5px 6px;
-    width: 75px;
-    display: flex;
+.prof {
+  color: #facc15;
+}
+
+.ana {
+  color: #7c3aed;
+}
+
+/* MENU (CENTRO) */
+.menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0 auto; /* 🔑 truque do flex */
+  padding: 0;
+}
+
+/* LINKS */
+.navegation {
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.25);
+  padding: 6px 12px;
+  min-width: 80px;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.navegation:hover {
+  border-color: white;
+  color: white;
+}
+
+.selected {
+  border-color: white;
+  color: white;
+}
+
+/* CONTATO */
+.contato {
+  margin-left: auto;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 640px) {
+  .header {
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
+
+  .menu {
+    width: 100%;
     justify-content: center;
-    border-radius: 20px;
-    
-    &.selected{
-        border: 2px solid rgb(0, 0, 0, 1);
-        color: rgb(0, 0, 0, 1);
-    }
+    order: 2;
+    margin: 0;
+  }
+
+  .logo {
+    order: 1;
+    width: 100%;
+    text-align: center;
+  }
+
+  .contato {
+    order: 3;
+  }
 }
