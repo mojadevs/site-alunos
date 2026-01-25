@@ -4,7 +4,6 @@
   padding: 20px 24px;
 }
 
-/* LOGO */
 .logo {
   font-size: 26px;
   font-weight: 600;
@@ -18,16 +17,14 @@
   color: #7c3aed;
 }
 
-/* MENU (CENTRO) */
 .menu {
   display: flex;
   gap: 20px;
   list-style: none;
-  margin: 0 auto; /* 🔑 truque do flex */
+  margin: 0 auto;
   padding: 0;
 }
 
-/* LINKS */
 .navegation {
   border: 2px solid rgba(255, 255, 255, 0.25);
   color: rgba(255, 255, 255, 0.25);
@@ -51,12 +48,12 @@
   color: white;
 }
 
-/* CONTATO */
 .contato {
   margin-left: auto;
 }
 
-/* 📱 MOBILE */
+/* ================= RESPONSIVO ================= */
+
 @media (max-width: 640px) {
   .header {
     flex-wrap: wrap;

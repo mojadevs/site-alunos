@@ -29,7 +29,6 @@
   transform: rotate(-15deg);
 }
 
-/* Triângulo */
 .triangle {
   position: absolute;
   bottom: 0;
@@ -43,7 +42,6 @@
   z-index: 1;
 }
 
-/* Imagem */
 .image img {
   position: absolute;
   bottom: 0;

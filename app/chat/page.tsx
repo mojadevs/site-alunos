@@ -3,14 +3,14 @@
 import { useState } from "react";
 import styles from "./chat.module.css";
 import ReactMarkdown from "react-markdown";
+import { isError } from "util";
 
 export default function ChatPage() {
   const [pergunta, setPergunta] = useState("");
   const [resposta, setResposta] = useState("");
   const [loading, setLoading] = useState(false);
   const [cooldown, setCooldown] = useState(0);
-  const [conversa, setConversa] = useState({pergunta: "", resposta: ""});
-
+  const [status, setStatus] = useState(false);
   
   async function enviarPergunta() {
     if (!pergunta.trim() || loading || cooldown > 0) return;
@@ -27,13 +27,13 @@ export default function ChatPage() {
       const data = await res.json();
 
       if (!res.ok) {
-        setResposta(data.erro || "Erro ao enviar pergunta");
+        setResposta(data.error || "Erro ao enviar pergunta");
+        setStatus(true);
         return;
       }
-
+      setStatus(false);
       setResposta(data.resposta);
 
-      // ⏳ inicia cooldown de 10s
       setCooldown(10);
       const interval = setInterval(() => {
         setCooldown((prev) => {
@@ -60,7 +60,9 @@ export default function ChatPage() {
       {resposta && (
         <div className={styles.respostaBox}>
           <h2 className={styles.titulo}>Orientação:</h2>
-          <div className={styles.resposta}>
+          <div className={`${styles.resposta} ${
+            status ? styles.erro : styles.normal
+            }`}>
             <ReactMarkdown>{resposta}</ReactMarkdown>
           </div>
         </div>
@@ -69,6 +71,7 @@ export default function ChatPage() {
       <div className={styles.chatBox}>
         <textarea
           value={pergunta}
+          
           onChange={(e) => setPergunta(e.target.value)}
           placeholder="Digite sua dúvida ou exercício..."
           className={styles.textarea}
